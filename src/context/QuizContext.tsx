@@ -2,7 +2,7 @@
 
 import { DUMMY_QUIZ_DATA } from '@/dummyData'
 import { ChildrenProps, QuestionType, QuizContextType } from '@/types/global'
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 const QuizContext = createContext<QuizContextType | null>(null)
 
@@ -17,6 +17,17 @@ export const useQuiz = () => {
 const QuizContextProvider = ({ children }: ChildrenProps) => {
   const [listOfQuestions, setListOfQuestions] =
     useState<QuestionType[]>(DUMMY_QUIZ_DATA)
+
+  useEffect(() => {
+    const savedQuestions = localStorage.getItem('quizQuestions')
+    if (savedQuestions) {
+      setListOfQuestions(JSON.parse(savedQuestions))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('quizQuestions', JSON.stringify(listOfQuestions))
+  }, [listOfQuestions])
 
   return (
     <QuizContext.Provider value={{ listOfQuestions, setListOfQuestions }}>
