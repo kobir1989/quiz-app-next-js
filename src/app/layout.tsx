@@ -1,3 +1,6 @@
+import NavBar from '@/components/UI/NavBar'
+import QuizContextProvider from '@/context'
+import NextAuthProvider from '@/Providers'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
@@ -28,7 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <NextAuthProvider>
+          <QuizContextProvider>
+            <NavBar />
+            {children}
+          </QuizContextProvider>
+        </NextAuthProvider>
       </body>
     </html>
   )
