@@ -1,4 +1,6 @@
 import Button from '@/components/UI/Button'
+import BaseCard from '@/components/UI/Cards/BaseCard'
+import CardTitle from '@/components/UI/Cards/CardTitle'
 import Input from '@/components/UI/Input'
 import { QuestionCardProps } from '@/types/global'
 
@@ -12,9 +14,9 @@ const QuestionCard = ({
   currentQuestionIndex
 }: QuestionCardProps) => {
   return (
-    <div className='shadow-lg w-[20rem] p-6 rounded-lg'>
+    <BaseCard>
       <div className='mb-6'>
-        <h1 className='text-[1.2rem] font-bold'>{question}</h1>
+        <CardTitle title={question} />
         <div className='flex flex-col gap-4 mt-4'>
           {options.map(option => (
             <div className='flex items-center  gap-2' key={option}>
@@ -46,7 +48,7 @@ const QuestionCard = ({
           Next
         </Button>
       </div>
-    </div>
+    </BaseCard>
   )
 }
 

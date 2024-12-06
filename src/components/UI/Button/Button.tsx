@@ -1,22 +1,22 @@
+import { ButtonProps } from '@/types/global'
 import { twMerge } from '@/utils'
-import { ButtonHTMLAttributes, ReactNode } from 'react'
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode
-  variant?: 'primary' | 'secondary' | 'danger' | 'outline' | 'text'
-  disabled?: boolean
-}
+const baseClasses = 'px-6 py-[6px] rounded-md hover:shadow-lg'
+const boldClasses = 'font-bold'
 
 const variantClasses = {
-  primary:
-    'bg-blue-500 text-white px-6 py-[6px] font-bold rounded-md hover:shadow-lg',
-  secondary:
-    'bg-gray-500 text-white px-6 py-[6px] font-bold rounded-md hover:shadow-lg',
-  danger:
-    'bg-red-500 text-white px-6 py-[6px] font-bold rounded-md hover:shadow-lg',
-  outline:
-    'bg-transparent text-black px-6 py-[6px] font-bold rounded-md border border-solid border-sky-500 hover:shadow-lg',
-  text: 'bg-transparent text-black px-6 py-[6px] font-medium text-[1rem]'
+  primary: twMerge(baseClasses, boldClasses, 'bg-blue-500 text-white'),
+  secondary: twMerge(baseClasses, boldClasses, 'bg-gray-500 text-white'),
+  danger: twMerge(baseClasses, boldClasses, 'bg-red-500 text-white'),
+  outline: twMerge(
+    baseClasses,
+    boldClasses,
+    'bg-transparent text-black border border-solid border-sky-500'
+  ),
+  text: twMerge(
+    baseClasses,
+    'bg-transparent text-black font-medium text-[1rem]'
+  )
 }
 
 const Button = ({

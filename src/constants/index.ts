@@ -1,12 +1,10 @@
-import { Credentials, UserCredentials } from '@/types/auth'
-
-export const ROLES: Record<string, string> = {
+export const ROLES = {
   ADMIN: 'ADMIN',
   USER: 'USER'
 }
 
 // Mock credentials
-export const ADMIN_CREDENTIALS: UserCredentials = {
+export const ADMIN_CREDENTIALS = {
   name: 'Admin',
   email: 'admin@test.com',
   password: 'admin123',
@@ -14,7 +12,7 @@ export const ADMIN_CREDENTIALS: UserCredentials = {
   id: 'ADMIN_1'
 }
 
-export const USER_CREDENTIALS: UserCredentials = {
+export const USER_CREDENTIALS = {
   name: 'User',
   email: 'user@test.com',
   password: 'user123',
@@ -22,7 +20,7 @@ export const USER_CREDENTIALS: UserCredentials = {
   id: 'USER_1'
 }
 
-export const CREDENTIALS: Credentials = {
+export const CREDENTIALS = {
   email: { label: 'Email', type: 'email' },
   password: { label: 'Password', type: 'password' }
 }

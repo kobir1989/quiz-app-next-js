@@ -1,14 +1,9 @@
 import Button from '@/components/UI/Button'
+import { NavLinkProps } from '@/types/global'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-interface NavLinkProps {
-  href: string
-  text: string
-  className?: string
-}
-
-const NavLinks = ({ href, text, className = '' }: NavLinkProps) => {
+const NavLink = ({ href, text, className = '' }: NavLinkProps) => {
   const pathname = usePathname()
   const isActive = pathname === href
 
@@ -23,4 +18,4 @@ const NavLinks = ({ href, text, className = '' }: NavLinkProps) => {
   )
 }
 
-export default NavLinks
+export default NavLink

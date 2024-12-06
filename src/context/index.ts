@@ -1,3 +1,3 @@
-import QuizContextProvider from '@/context/QuizContext'
+import QuizContextProvider from './QuizContext'
 
 export default QuizContextProvider

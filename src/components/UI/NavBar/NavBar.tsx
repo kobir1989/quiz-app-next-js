@@ -1,9 +1,9 @@
 'use client'
 
-import NavLinks from '@/components/UI/NavBar/NavLinks'
 import UserDropdown from '@/components/UI/NavBar/UserDropdown'
 import { isAdmin } from '@/utils'
 import { signOut, useSession } from 'next-auth/react'
+import NavLink from './NavLink'
 
 export const NavBar = () => {
   const { data: session } = useSession()
@@ -17,11 +17,11 @@ export const NavBar = () => {
       <h2 className='text-lg font-bold'>Next.js Quiz App</h2>
       <div className='flex gap-4'>
         {isAdmin(session?.user?.role) && (
-          <NavLinks href='/dashboard' text='Dashboard' />
+          <NavLink href='/dashboard' text='Dashboard' />
         )}
         {session && (
           <>
-            <NavLinks href='/quiz' text='Quiz' />
+            <NavLink href='/' text='Quiz' />
             <UserDropdown handleSignOut={handleSignOut} />
           </>
         )}

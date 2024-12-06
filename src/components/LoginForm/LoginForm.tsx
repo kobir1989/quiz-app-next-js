@@ -1,9 +1,13 @@
 'use client'
 
-import { LoginFormInputs } from '@/components/LoginForm/types'
 import Button from '@/components/UI/Button'
 import Input from '@/components/UI/Input'
-import { ChangeEventType, GenericObject, SubmitEventType } from '@/types/global'
+import {
+  ChangeEventType,
+  GenericObject,
+  LoginFormInputs,
+  SubmitEventType
+} from '@/types/global'
 import { inputValidator } from '@/utils'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
@@ -63,7 +67,7 @@ const LoginForm = () => {
       })
 
       if (response?.status === 200) {
-        router.push('/quiz')
+        router.push('/')
       } else {
         setFormErrors({
           email: 'Invalid email or password',
