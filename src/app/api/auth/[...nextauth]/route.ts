@@ -2,7 +2,7 @@ import { ADMIN_CREDENTIALS, CREDENTIALS, USER_CREDENTIALS } from '@/constants'
 import NextAuth, { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-export const authOptions: NextAuthOptions = {
+const options: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       credentials: CREDENTIALS,
@@ -60,5 +60,5 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET
 }
 
-const handler = NextAuth(authOptions)
+const handler = NextAuth(options)
 export { handler as GET, handler as POST }
